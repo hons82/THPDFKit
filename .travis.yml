@@ -1,0 +1,12 @@
+language: objective-c
+osx_image: xcode9.2
+cache:
+  - bundler
+  - cocoapods
+before_script:
+  - bundle install
+  - bundle exec pod install --repo-update
+script:
+  - set -o pipefail && bundle exec rake test | bundle exec xcpretty --test --color
+  - bundle exec pod lib lint --quick
+after_success: bundle exec slather

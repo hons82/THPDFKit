@@ -1,0 +1,3 @@
+coverage_service: coveralls
+xcodeproj: THPDFKitDemo/THPDFKitDemo.xcodeproj
+source_directory: THPDFKitDemo

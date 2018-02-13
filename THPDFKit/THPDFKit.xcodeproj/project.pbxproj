@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9950A09D2029A3ED00DC305C /* THPDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9950A0932029A3ED00DC305C /* THPDFKit.framework */; };
+		9950A0A22029A3ED00DC305C /* THPDFKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A0A12029A3ED00DC305C /* THPDFKitTests.swift */; };
+		9950A0A42029A3ED00DC305C /* THPDFKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 9950A0962029A3ED00DC305C /* THPDFKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9950A0F52029A48300DC305C /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9950A0F42029A48300DC305C /* PDFKit.framework */; };
+		9950A0F72029A48900DC305C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9950A0F62029A48900DC305C /* UIKit.framework */; };
+		9950A1022029A4C100DC305C /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A0FB2029A4C100DC305C /* SearchTableViewController.swift */; };
+		9950A1032029A4C100DC305C /* OutlineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A0FC2029A4C100DC305C /* OutlineTableViewCell.swift */; };
+		9950A1042029A4C100DC305C /* OutlineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A0FD2029A4C100DC305C /* OutlineTableViewController.swift */; };
+		9950A1052029A4C100DC305C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A0FE2029A4C100DC305C /* SearchTableViewCell.swift */; };
+		9950A1062029A4C100DC305C /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A0FF2029A4C100DC305C /* ThumbnailCollectionViewCell.swift */; };
+		9950A1072029A4C100DC305C /* ThumbnailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A1002029A4C100DC305C /* ThumbnailCollectionViewController.swift */; };
+		9950A1082029A4C100DC305C /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9950A1012029A4C100DC305C /* PDFViewController.swift */; };
+		9950A10A2029A4DD00DC305C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9950A1092029A4DD00DC305C /* Assets.xcassets */; };
+		999A3308202B570E00705322 /* QLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999A3307202B570E00705322 /* QLViewController.swift */; };
+		999A330B202B572A00705322 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999A330A202B572A00705322 /* QuickLook.framework */; };
+		999A330D202B585F00705322 /* PDFKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999A330C202B585F00705322 /* PDFKitViewController.swift */; };
+		999A330F202B620B00705322 /* PinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999A330E202B620B00705322 /* PinHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9950A09E2029A3ED00DC305C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9950A08A2029A3ED00DC305C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9950A0922029A3ED00DC305C;
+			remoteInfo = THPDFKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9950A0932029A3ED00DC305C /* THPDFKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THPDFKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9950A0962029A3ED00DC305C /* THPDFKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THPDFKit.h; sourceTree = "<group>"; };
+		9950A0972029A3ED00DC305C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9950A09C2029A3ED00DC305C /* THPDFKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THPDFKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9950A0A12029A3ED00DC305C /* THPDFKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THPDFKitTests.swift; sourceTree = "<group>"; };
+		9950A0A32029A3ED00DC305C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9950A0F42029A48300DC305C /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
+		9950A0F62029A48900DC305C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9950A0FB2029A4C100DC305C /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		9950A0FC2029A4C100DC305C /* OutlineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineTableViewCell.swift; sourceTree = "<group>"; };
+		9950A0FD2029A4C100DC305C /* OutlineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineTableViewController.swift; sourceTree = "<group>"; };
+		9950A0FE2029A4C100DC305C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		9950A0FF2029A4C100DC305C /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
+		9950A1002029A4C100DC305C /* ThumbnailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewController.swift; sourceTree = "<group>"; };
+		9950A1012029A4C100DC305C /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		9950A1092029A4DD00DC305C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		999A3307202B570E00705322 /* QLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLViewController.swift; sourceTree = "<group>"; };
+		999A330A202B572A00705322 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		999A330C202B585F00705322 /* PDFKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFKitViewController.swift; sourceTree = "<group>"; };
+		999A330E202B620B00705322 /* PinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9950A08F2029A3ED00DC305C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				999A330B202B572A00705322 /* QuickLook.framework in Frameworks */,
+				9950A0F72029A48900DC305C /* UIKit.framework in Frameworks */,
+				9950A0F52029A48300DC305C /* PDFKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9950A0992029A3ED00DC305C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9950A09D2029A3ED00DC305C /* THPDFKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9950A0892029A3ED00DC305C = {
+			isa = PBXGroup;
+			children = (
+				9950A0952029A3ED00DC305C /* THPDFKit */,
+				9950A0A02029A3ED00DC305C /* THPDFKitTests */,
+				9950A0942029A3ED00DC305C /* Products */,
+				9950A0F32029A48300DC305C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9950A0942029A3ED00DC305C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9950A0932029A3ED00DC305C /* THPDFKit.framework */,
+				9950A09C2029A3ED00DC305C /* THPDFKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9950A0952029A3ED00DC305C /* THPDFKit */ = {
+			isa = PBXGroup;
+			children = (
+				9950A0962029A3ED00DC305C /* THPDFKit.h */,
+				9950A0972029A3ED00DC305C /* Info.plist */,
+				9950A0FC2029A4C100DC305C /* OutlineTableViewCell.swift */,
+				9950A0FD2029A4C100DC305C /* OutlineTableViewController.swift */,
+				999A330C202B585F00705322 /* PDFKitViewController.swift */,
+				9950A1012029A4C100DC305C /* PDFViewController.swift */,
+				9950A0FE2029A4C100DC305C /* SearchTableViewCell.swift */,
+				9950A0FB2029A4C100DC305C /* SearchTableViewController.swift */,
+				9950A0FF2029A4C100DC305C /* ThumbnailCollectionViewCell.swift */,
+				9950A1002029A4C100DC305C /* ThumbnailCollectionViewController.swift */,
+				9950A1092029A4DD00DC305C /* Assets.xcassets */,
+				999A3309202B571300705322 /* Legacy */,
+				999A3310202B621000705322 /* Utils */,
+			);
+			path = THPDFKit;
+			sourceTree = "<group>";
+		};
+		9950A0A02029A3ED00DC305C /* THPDFKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				9950A0A12029A3ED00DC305C /* THPDFKitTests.swift */,
+				9950A0A32029A3ED00DC305C /* Info.plist */,
+			);
+			path = THPDFKitTests;
+			sourceTree = "<group>";
+		};
+		9950A0F32029A48300DC305C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				999A330A202B572A00705322 /* QuickLook.framework */,
+				9950A0F62029A48900DC305C /* UIKit.framework */,
+				9950A0F42029A48300DC305C /* PDFKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		999A3309202B571300705322 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				999A3307202B570E00705322 /* QLViewController.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		999A3310202B621000705322 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				999A330E202B620B00705322 /* PinHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9950A0902029A3ED00DC305C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9950A0A42029A3ED00DC305C /* THPDFKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9950A0922029A3ED00DC305C /* THPDFKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9950A0A72029A3ED00DC305C /* Build configuration list for PBXNativeTarget "THPDFKit" */;
+			buildPhases = (
+				9950A08E2029A3ED00DC305C /* Sources */,
+				9950A08F2029A3ED00DC305C /* Frameworks */,
+				9950A0902029A3ED00DC305C /* Headers */,
+				9950A0912029A3ED00DC305C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = THPDFKit;
+			productName = THPDFKit;
+			productReference = 9950A0932029A3ED00DC305C /* THPDFKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9950A09B2029A3ED00DC305C /* THPDFKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9950A0AA2029A3ED00DC305C /* Build configuration list for PBXNativeTarget "THPDFKitTests" */;
+			buildPhases = (
+				9950A0982029A3ED00DC305C /* Sources */,
+				9950A0992029A3ED00DC305C /* Frameworks */,
+				9950A09A2029A3ED00DC305C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9950A09F2029A3ED00DC305C /* PBXTargetDependency */,
+			);
+			name = THPDFKitTests;
+			productName = THPDFKitTests;
+			productReference = 9950A09C2029A3ED00DC305C /* THPDFKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9950A08A2029A3ED00DC305C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = 3Bus;
+				TargetAttributes = {
+					9950A0922029A3ED00DC305C = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					9950A09B2029A3ED00DC305C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9950A08D2029A3ED00DC305C /* Build configuration list for PBXProject "THPDFKit" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9950A0892029A3ED00DC305C;
+			productRefGroup = 9950A0942029A3ED00DC305C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9950A0922029A3ED00DC305C /* THPDFKit */,
+				9950A09B2029A3ED00DC305C /* THPDFKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9950A0912029A3ED00DC305C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9950A10A2029A4DD00DC305C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9950A09A2029A3ED00DC305C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9950A08E2029A3ED00DC305C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9950A1032029A4C100DC305C /* OutlineTableViewCell.swift in Sources */,
+				999A330F202B620B00705322 /* PinHelper.swift in Sources */,
+				9950A1052029A4C100DC305C /* SearchTableViewCell.swift in Sources */,
+				999A330D202B585F00705322 /* PDFKitViewController.swift in Sources */,
+				9950A1022029A4C100DC305C /* SearchTableViewController.swift in Sources */,
+				9950A1062029A4C100DC305C /* ThumbnailCollectionViewCell.swift in Sources */,
+				9950A1042029A4C100DC305C /* OutlineTableViewController.swift in Sources */,
+				999A3308202B570E00705322 /* QLViewController.swift in Sources */,
+				9950A1082029A4C100DC305C /* PDFViewController.swift in Sources */,
+				9950A1072029A4C100DC305C /* ThumbnailCollectionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9950A0982029A3ED00DC305C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9950A0A22029A3ED00DC305C /* THPDFKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9950A09F2029A3ED00DC305C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9950A0922029A3ED00DC305C /* THPDFKit */;
+			targetProxy = 9950A09E2029A3ED00DC305C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9950A0A52029A3ED00DC305C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9950A0A62029A3ED00DC305C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9950A0A82029A3ED00DC305C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QWP2E983M5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = THPDFKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.3bus.THPDFKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9950A0A92029A3ED00DC305C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QWP2E983M5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = THPDFKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.3bus.THPDFKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9950A0AB2029A3ED00DC305C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QWP2E983M5;
+				INFOPLIST_FILE = THPDFKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.3bus.THPDFKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9950A0AC2029A3ED00DC305C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QWP2E983M5;
+				INFOPLIST_FILE = THPDFKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = it.3bus.THPDFKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9950A08D2029A3ED00DC305C /* Build configuration list for PBXProject "THPDFKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9950A0A52029A3ED00DC305C /* Debug */,
+				9950A0A62029A3ED00DC305C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9950A0A72029A3ED00DC305C /* Build configuration list for PBXNativeTarget "THPDFKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9950A0A82029A3ED00DC305C /* Debug */,
+				9950A0A92029A3ED00DC305C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9950A0AA2029A3ED00DC305C /* Build configuration list for PBXNativeTarget "THPDFKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9950A0AB2029A3ED00DC305C /* Debug */,
+				9950A0AC2029A3ED00DC305C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9950A08A2029A3ED00DC305C /* Project object */;
+}

@@ -25,6 +25,7 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     fileprivate lazy var pdfView: PDFView = {
         let view = PDFView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.delegate = self
         view.displayMode = .singlePage
         view.displaysAsBook = true
         view.displayDirection = .horizontal
@@ -94,12 +95,13 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         toolView.bringSubview(toFront: self.view)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
-        pdfView.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
         
         ([.right, .down, .left, .up] as [UISwipeGestureRecognizerDirection]).forEach({
             let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(_:)))
             swipeGesture.direction = $0
-            self.pdfView.addGestureRecognizer(swipeGesture)
+            self.view.addGestureRecognizer(swipeGesture)
         })
         updateOrientation(landscape: UIApplication.shared.statusBarOrientation.isLandscape)
     }
@@ -206,13 +208,18 @@ open class PDFKitViewController: UIViewController, PDFViewController {
             return
         }
         
+        let location = gestureRecognizer.location(in: gestureRecognizer.view)
         switch gestureRecognizer.direction {
         case .right:
-            gotoPreviousPage()
+            if thumbnailViewBottomContraint.constant > 0  || location.y < pdfView.frame.size.height - thumbnailViewHeightContraint.constant {
+                gotoPreviousPage()
+            }
         case .down:
             hideThumbnailView()
         case .left:
-            gotoNextPage()
+            if thumbnailViewBottomContraint.constant > 0  || location.y < pdfView.frame.size.height - thumbnailViewHeightContraint.constant {
+                gotoNextPage()
+            }
         case .up:
             showThumbnailView()
         default:
@@ -228,11 +235,11 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         }
         let location = gestureRecognizer.location(in: gestureRecognizer.view)
         let touchAreaWidth: CGFloat = 100
-        if location.x < touchAreaWidth {
+        if location.x < touchAreaWidth && (thumbnailViewBottomContraint.constant > 0  || location.y < pdfView.frame.size.height - thumbnailViewHeightContraint.constant){
             gotoPreviousPage()
-        } else if location.x > pdfView.frame.size.width - touchAreaWidth {
+        } else if location.x > pdfView.frame.size.width - touchAreaWidth && (thumbnailViewBottomContraint.constant > 0  || location.y < pdfView.frame.size.height - thumbnailViewHeightContraint.constant) {
             gotoNextPage()
-        } else if location.y > pdfView.frame.size.height - touchAreaWidth {
+        } else if location.y > pdfView.frame.size.height - 22 {
             showThumbnailView()
         } else {
             toggleToolView()
@@ -294,7 +301,7 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     }
     
     func showThumbnailView() {
-        guard thumbnailViewBottomContraint.constant >= 0 else {
+        guard thumbnailViewBottomContraint.constant > 0 else {
             return
         }
         thumbnailViewBottomContraint.constant = 0
@@ -329,6 +336,21 @@ open class PDFKitViewController: UIViewController, PDFViewController {
             return
         }
         pdfView.go(to: pdfPage)
+    }
+    
+}
+
+@available(iOS 11.0, *)
+extension PDFKitViewController: PDFViewDelegate {
+    
+    public func pdfViewWillClick(onLink sender: PDFView, with url: URL) {
+        if let delegate = delegate {
+            delegate.pdfViewController(self, willClickOnLink: url)
+        } else {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
 }

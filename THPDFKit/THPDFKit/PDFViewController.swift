@@ -10,6 +10,7 @@ import UIKit
 
 @objc public protocol PDFViewControllerDelegate: class {
     func pdfViewController(_ pdfViewController: PDFViewController, didBookmarkPage page: Int, inPdf url: URL)
+    func pdfViewController(_ pdfViewController: PDFViewController, willClickOnLink url: URL)
 }
 
 @objc public protocol PDFViewController: class {

@@ -57,19 +57,31 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         return view
     }()
     
+    open var thumbnailSize: CGSize? {
+        didSet{
+            if let thumbnailSize = thumbnailSize {
+                thumbnailViewHeightContraint.constant = thumbnailSize.height + 30.0
+            }
+        }
+    }
+    
     fileprivate lazy var thumbnailView: PDFThumbnailView = {
         let view = PDFThumbnailView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layoutMode = .horizontal
         view.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
         view.pdfView = self.pdfView
-        view.thumbnailSize = CGSize(width: 50.0, height: 75.0)
+        view.thumbnailSize = thumbnailSize ?? CGSize(width: 50.0, height: 75.0)
         
         return view
     }()
     
     fileprivate lazy var thumbnailViewBottomContraint: NSLayoutConstraint = {
         return NSLayoutConstraint(item: self.thumbnailView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
+    }()
+    
+    fileprivate lazy var thumbnailViewHeightContraint: NSLayoutConstraint = {
+        return NSLayoutConstraint(item: self.thumbnailView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
     }()
     
     @objc open weak var delegate: PDFViewControllerDelegate?
@@ -87,10 +99,10 @@ open class PDFKitViewController: UIViewController, PDFViewController {
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[pdfView]-|", options: [], metrics: nil, views: ["pdfView": self.pdfView]) +
                 NSLayoutConstraint.constraints(withVisualFormat: "V:|-[pdfView]-|", options: [], metrics: nil, views: ["pdfView": self.pdfView]) +
                 NSLayoutConstraint.constraints(withVisualFormat: "H:|[thumbnailView]|", options: [], metrics: nil, views: ["thumbnailView": self.thumbnailView]) +
-                NSLayoutConstraint.constraints(withVisualFormat: "V:[toolView]-32-[thumbnailView(==100)]", options: [], metrics: nil, views: ["toolView": self.toolView, "thumbnailView": self.thumbnailView])
+                NSLayoutConstraint.constraints(withVisualFormat: "V:[toolView]-32-[thumbnailView]", options: [], metrics: nil, views: ["toolView": self.toolView, "thumbnailView": self.thumbnailView])
         )
         self.view.addConstraint(NSLayoutConstraint(item: self.toolView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0))
-        self.view.addConstraint(thumbnailViewBottomContraint)
+        self.view.addConstraints([thumbnailViewBottomContraint, thumbnailViewHeightContraint])
         
         toolView.bringSubview(toFront: self.view)
         

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name					        = "THPDFKit"
-  s.version					      = "0.1.0"
+  s.version					      = "0.1.1"
   s.summary					      = "PDF viewer component on top of Apples PDFKit"
   s.description				    = <<-DESC
 PDF viewer component on top of Apples PDFKit. 

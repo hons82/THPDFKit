@@ -23,7 +23,7 @@ Install with [CocoaPods](http://cocoapods.org) by adding the following to your P
 ``` ruby
 platform :ios, '11.0'
 use_frameworks!
-pod 'THPDFKit', '~> 0.1.0'
+pod 'THPDFKit', '~> 0.1.1'
 ```
 
 **Note**: We follow http://semver.org for versioning the public API.

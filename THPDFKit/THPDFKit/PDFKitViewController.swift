@@ -34,12 +34,14 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         return view
     }()
     
+    @objc open lazy var tintColor: UIColor = self.view.tintColor
+    
     private lazy var toolViewBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         view.layer.borderWidth = 1.0
-        view.layer.borderColor = UIColor.darkGray.cgColor
+        view.layer.borderColor = tintColor.cgColor
         view.layer.cornerRadius = 10.0
         
         return view
@@ -126,7 +128,6 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -145,14 +146,15 @@ open class PDFKitViewController: UIViewController, PDFViewController {
             }
             if stackView.arrangedSubviews.count > 0 {
                 let view = UIView()
-                view.backgroundColor = .darkGray
+                view.backgroundColor = tintColor
                 view.heightAnchor.constraint(equalToConstant: 44).isActive = true
                 view.widthAnchor.constraint(equalToConstant: 1).isActive = true
                 stackView.addArrangedSubview(view)
             }
             
             let button = UIButton(type: .custom)
-            button.setImage(UIImage(named: imagename, in: Bundle(for: PDFKitViewController.classForCoder()), compatibleWith: nil), for: .normal)
+            button.setImage(UIImage(named: imagename, in: Bundle(for: PDFKitViewController.classForCoder()), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate), for: .normal)
+            button.tintColor = tintColor
             button.heightAnchor.constraint(equalToConstant: 44).isActive = true
             button.widthAnchor.constraint(equalToConstant: 88).isActive = true
             button.addTarget(self, action: selector, for: .touchUpInside)

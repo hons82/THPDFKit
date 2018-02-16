@@ -21,16 +21,38 @@ PDF viewer component on top of Apples PDFKit
 Install with [CocoaPods](http://cocoapods.org) by adding the following to your Podfile:
 
 ``` ruby
-platform :ios, '11.0'
+platform :ios, '9.0'
 use_frameworks!
-pod 'THPDFKit', '~> 0.1.1'
+pod 'THPDFKit', '~> 0.2.0'
 ```
 
 **Note**: We follow http://semver.org for versioning the public API.
 
 # Usage
 
-TBD
+This is a sample initialization taken from the sample project which uses storyboards to define viewcontrollers and navigation. 
+
+However the only thing that is really needed is passing the URL to the PDF file to the Wrapper (If you wanna use the Quicklook fallback) or directly to the `PDFKitViewController` if you're not targeting platforms below iOS11.
+
+```swift
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let selectedRow = indexPath.row
+            let detailVC = segue.destination as! PDFViewControllerWrapper
+            detailVC.url = self.samplePDFs[selectedRow]
+            
+        }
+    }
+```
+# TODOs
+
+- Finally fix the broken TravisCI integration
+- Support for annotations
+- Improve podspec for iOS11 only version without Quicklook
+- Extend customizability (colors, sizes, fonts, ...)
+- Support for CocoaLumberjack (for logging)
 
 # Contributions
 

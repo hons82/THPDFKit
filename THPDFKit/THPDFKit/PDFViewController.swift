@@ -46,11 +46,6 @@ open class PDFViewControllerWrapper: UIViewController, PDFViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 11.0, *) {
-        if let aVC = activeViewController as? PDFKitViewController {
-            aVC.thumbnailSize = CGSize(width: 30.0, height: 45.0)
-        }
-        }
         updateActiveViewController()
     }
     

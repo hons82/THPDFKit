@@ -13,8 +13,10 @@ import CocoaLumberjack
 class PDFSelectionTableViewController: UITableViewController {
     
     let samplePDFs: [URL?] = [Bundle.main.url(forResource: "book-of-vaadin", withExtension: "pdf")]
+    private static let ddLogLevel = DDLogLevel.verbose
     
     override func viewDidLoad() {
+        defaultDebugLevel = PDFSelectionTableViewController.ddLogLevel
         super.viewDidLoad()
     }
     
@@ -48,7 +50,7 @@ class PDFSelectionTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow{
             let selectedRow = indexPath.row
-            
+            DDLogDebug("Showing \(String(describing: self.samplePDFs[selectedRow]))")
             let detailVC = segue.destination as! PDFViewControllerWrapper
             detailVC.url = self.samplePDFs[selectedRow]
             

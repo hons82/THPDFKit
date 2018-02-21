@@ -4,7 +4,6 @@ cache:
   - bundler
   - cocoapods
 before_script:
-  - gem install cocoapods # Since Travis is not always on latest version
   - bundle install
   - bundle exec pod install --repo-update
 script:

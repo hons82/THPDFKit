@@ -115,7 +115,8 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         ([.right, .down, .left, .up] as [UISwipeGestureRecognizerDirection]).forEach({
             let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture(_:)))
             swipeGesture.direction = $0
-            self.view.addGestureRecognizer(swipeGesture)
+            swipeGesture.cancelsTouchesInView = false
+            self.pdfView.addGestureRecognizer(swipeGesture)
         })
         updateOrientation(landscape: UIApplication.shared.statusBarOrientation.isLandscape)
     }

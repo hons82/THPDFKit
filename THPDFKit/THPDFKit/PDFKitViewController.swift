@@ -88,6 +88,11 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     
     @objc open weak var delegate: PDFViewControllerDelegate?
     
+    var thumbnailsAlwaysVisible: Bool = true
+    
+    
+    // MARK: - ViewController Lifecycle
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,17 +102,29 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         
         [self.pdfView, self.toolView, self.thumbnailView].forEach({ self.view.addSubview($0) })
         
-        NSLayoutConstraint.activate (
+        NSLayoutConstraint.activate(
             NSLayoutConstraint.constraints(withVisualFormat: "H:|-[pdfView]-|", options: [], metrics: nil, views: ["pdfView": self.pdfView]) +
-                NSLayoutConstraint.constraints(withVisualFormat: "V:|-[pdfView]-|", options: [], metrics: nil, views: ["pdfView": self.pdfView]) +
-                NSLayoutConstraint.constraints(withVisualFormat: "H:|[thumbnailView]|", options: [], metrics: nil, views: ["thumbnailView": self.thumbnailView]) +
-                NSLayoutConstraint.constraints(withVisualFormat: "V:[toolView]-32-[thumbnailView]", options: [], metrics: nil, views: ["toolView": self.toolView, "thumbnailView": self.thumbnailView])
+            NSLayoutConstraint.constraints(withVisualFormat: "H:|[thumbnailView]|", options: [], metrics: nil, views: ["thumbnailView": self.thumbnailView]) +
+            NSLayoutConstraint.constraints(withVisualFormat: "V:[toolView]-32-[thumbnailView]", options: [], metrics: nil, views: ["toolView": self.toolView, "thumbnailView": self.thumbnailView])
         )
+        
         self.view.addConstraint(NSLayoutConstraint(item: self.toolView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0))
-        self.view.addConstraints([thumbnailViewBottomContraint, thumbnailViewHeightContraint])
+        self.view.addConstraints([thumbnailViewHeightContraint])
         
-        toolView.bringSubview(toFront: self.view)
-        
+        if thumbnailsAlwaysVisible {
+            NSLayoutConstraint.activate(
+                NSLayoutConstraint.constraints(withVisualFormat: "H:|[thumbnailView]|", options: [], metrics: nil, views: ["thumbnailView": self.thumbnailView]) +
+                NSLayoutConstraint.constraints(withVisualFormat: "V:|-[pdfView]-[thumbnailView]|", options: [], metrics: nil, views: ["pdfView": self.pdfView, "thumbnailView": self.thumbnailView])
+            )
+        }
+        else {
+            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[pdfView]-|", options: [], metrics: nil, views: ["pdfView": self.pdfView]))
+            
+            self.view.addConstraints([thumbnailViewBottomContraint])
+
+            toolView.bringSubview(toFront: self.view)
+        }
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)

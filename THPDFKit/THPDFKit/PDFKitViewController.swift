@@ -9,6 +9,21 @@
 import UIKit
 import PDFKit
 
+
+public struct PDFViewControllerConfiguration {
+    
+    enum ThumbnailDisplayMode: Int {
+        case overlay
+        case fixed
+    }
+    
+    // These are the default properties for a new configuration
+    let thumbnailDisplayMode: ThumbnailDisplayMode = .overlay
+    let thumbnailSize: CGSize = CGSize(width: 50.0, height: 75.0)
+    let thumbnailViewHeight: CGFloat = 100.0
+    
+}
+
 @available(iOS 11.0, *)
 open class PDFKitViewController: UIViewController, PDFViewController {
     
@@ -59,21 +74,13 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         return view
     }()
     
-    open var thumbnailSize: CGSize? {
-        didSet{
-            if let thumbnailSize = thumbnailSize {
-                thumbnailViewHeightContraint.constant = thumbnailSize.height + 30.0
-            }
-        }
-    }
-    
     fileprivate lazy var thumbnailView: PDFThumbnailView = {
         let view = PDFThumbnailView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layoutMode = .horizontal
         view.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
         view.pdfView = self.pdfView
-        view.thumbnailSize = thumbnailSize ?? CGSize(width: 50.0, height: 75.0)
+        view.thumbnailSize = configuration.thumbnailSize
         
         return view
     }()
@@ -83,13 +90,25 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     }()
     
     fileprivate lazy var thumbnailViewHeightContraint: NSLayoutConstraint = {
-        return NSLayoutConstraint(item: self.thumbnailView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
+        return NSLayoutConstraint(item: self.thumbnailView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.configuration.thumbnailViewHeight)
     }()
     
     @objc open weak var delegate: PDFViewControllerDelegate?
     
-    var thumbnailsAlwaysVisible: Bool = true
+    let configuration: PDFViewControllerConfiguration
     
+    
+    // MARK: - Initialization
+    
+    init(configuration: PDFViewControllerConfiguration? = nil) {
+        self.configuration = configuration ?? PDFViewControllerConfiguration()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        self.configuration = PDFViewControllerConfiguration()
+        super.init(coder: aDecoder)
+    }
     
     // MARK: - ViewController Lifecycle
     
@@ -111,18 +130,18 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         self.view.addConstraint(NSLayoutConstraint(item: self.toolView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0))
         self.view.addConstraints([thumbnailViewHeightContraint])
         
-        if thumbnailsAlwaysVisible {
+        if configuration.thumbnailDisplayMode == .overlay {
+            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[pdfView]-|", options: [], metrics: nil, views: ["pdfView": self.pdfView]))
+            
+            self.view.addConstraints([thumbnailViewBottomContraint])
+            
+            toolView.bringSubview(toFront: self.view)
+        }
+        else if configuration.thumbnailDisplayMode == .fixed {
             NSLayoutConstraint.activate(
                 NSLayoutConstraint.constraints(withVisualFormat: "H:|[thumbnailView]|", options: [], metrics: nil, views: ["thumbnailView": self.thumbnailView]) +
                 NSLayoutConstraint.constraints(withVisualFormat: "V:|-[pdfView]-[thumbnailView]|", options: [], metrics: nil, views: ["pdfView": self.pdfView, "thumbnailView": self.thumbnailView])
             )
-        }
-        else {
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[pdfView]-|", options: [], metrics: nil, views: ["pdfView": self.pdfView]))
-            
-            self.view.addConstraints([thumbnailViewBottomContraint])
-
-            toolView.bringSubview(toFront: self.view)
         }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))

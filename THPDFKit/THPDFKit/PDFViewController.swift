@@ -20,6 +20,8 @@ import UIKit
 
 open class PDFViewControllerWrapper: UIViewController, PDFViewController {
     
+    let configuration: PDFViewControllerConfiguration?
+    
     open var url: URL? {
         didSet{
             if let url = url {
@@ -28,20 +30,34 @@ open class PDFViewControllerWrapper: UIViewController, PDFViewController {
         }
     }
     
-    static func factory() -> PDFViewController {
+    static func factory(with configuration: PDFViewControllerConfiguration? = nil) -> PDFViewController {
         if #available(iOS 11.0, *) {
-            return PDFKitViewController()
+            return PDFKitViewController(configuration: configuration)
         } else {
             // Fallback on earlier versions
             return QLViewController()
         }
     }
     
-    private var activeViewController: PDFViewController = PDFViewControllerWrapper.factory() {
+    private var activeViewController: PDFViewController {
         didSet {
             removeInactiveViewController(inactiveViewController: oldValue)
             updateActiveViewController()
         }
+    }
+    
+    init(configuration: PDFViewControllerConfiguration? = nil) {
+        self.configuration = configuration
+        self.activeViewController = PDFViewControllerWrapper.factory(with: configuration)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        self.configuration = PDFViewControllerConfiguration()
+        self.activeViewController = PDFViewControllerWrapper.factory(with: self.configuration)
+        
+        super.init(coder: aDecoder)
     }
     
     override open func viewDidLoad() {

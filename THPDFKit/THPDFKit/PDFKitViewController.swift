@@ -12,15 +12,21 @@ import PDFKit
 
 public struct PDFViewControllerConfiguration {
     
-    enum ThumbnailDisplayMode: Int {
+    public enum ThumbnailDisplayMode: Int {
         case overlay
         case fixed
     }
     
     // These are the default properties for a new configuration
-    let thumbnailDisplayMode: ThumbnailDisplayMode = .overlay
-    let thumbnailSize: CGSize = CGSize(width: 50.0, height: 75.0)
-    let thumbnailViewHeight: CGFloat = 100.0
+    public let thumbnailDisplayMode: ThumbnailDisplayMode
+    public let thumbnailSize: CGSize
+    public let thumbnailViewHeight: CGFloat
+
+    public init(thumbnailDisplayMode: ThumbnailDisplayMode? = nil, thumbnailSize: CGSize? = nil, thumbnailViewHeight: CGFloat? = nil) {
+        self.thumbnailDisplayMode = thumbnailDisplayMode ?? .overlay
+        self.thumbnailSize = thumbnailSize ?? CGSize(width: 50.0, height: 75.0)
+        self.thumbnailViewHeight = thumbnailViewHeight ?? 100.0
+    }
     
 }
 
@@ -100,7 +106,7 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     
     // MARK: - Initialization
     
-    init(configuration: PDFViewControllerConfiguration? = nil) {
+    public init(configuration: PDFViewControllerConfiguration? = nil) {
         self.configuration = configuration ?? PDFViewControllerConfiguration()
         super.init(nibName: nil, bundle: nil)
     }

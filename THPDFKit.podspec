@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name					        = "THPDFKit"
-  s.version					      = "0.3.0"
+  s.version					      = "0.3.1"
   s.summary					      = "PDF viewer component on top of Apples PDFKit"
   s.description				    = <<-DESC
-PDF viewer component on top of Apples PDFKit. 
+PDF viewer component on top of Apples PDFKit.
 As a fallback for older iOS versions this library is using QuickLook
 DESC
   s.homepage				      = "https://github.com/hons82/THPDFKit"

@@ -23,26 +23,26 @@ Install with [CocoaPods](http://cocoapods.org) by adding the following to your P
 ``` ruby
 platform :ios, '9.0'
 use_frameworks!
-pod 'THPDFKit', '~> 0.3.0'
+pod 'THPDFKit', '~> 0.3.1'
 ```
 
 **Note**: We follow http://semver.org for versioning the public API.
 
 # Usage
 
-This is a sample initialization taken from the sample project which uses storyboards to define viewcontrollers and navigation. 
+This is a sample initialization taken from the sample project which uses storyboards to define viewcontrollers and navigation.
 
 However the only thing that is really needed is passing the URL to the PDF file to the Wrapper (If you wanna use the Quicklook fallback) or directly to the `PDFKitViewController` if you're not targeting platforms below iOS11.
 
 ```swift
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
             let selectedRow = indexPath.row
             let detailVC = segue.destination as! PDFViewControllerWrapper
             detailVC.url = self.samplePDFs[selectedRow]
-            
+
         }
     }
 ```

@@ -55,6 +55,12 @@ open class PDFKitViewController: UIViewController, PDFViewController {
         return view
     }()
     
+    @objc open var currentPageIndex: Int {
+        guard let currentPage = pdfView.currentPage, let pdfdocument = pdfdocument else { return -1 }
+        
+        return pdfdocument.index(for: currentPage)
+    }
+    
     @objc open lazy var tintColor: UIColor = self.view.tintColor
     
     private lazy var toolViewBackgroundView: UIView = {

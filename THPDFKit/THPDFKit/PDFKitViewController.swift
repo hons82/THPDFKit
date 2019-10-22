@@ -310,7 +310,7 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     }
     
     func gotoPreviousPage() {
-        if pdfView.canGoToPreviousPage() {
+        if pdfView.canGoToPreviousPage {
             UIView.animate(withDuration:CATransaction.animationDuration(), animations: { [weak self] in
                 self?.pdfView.alpha = 0.0
                 }, completion: { [weak self] (finished: Bool) in
@@ -329,7 +329,7 @@ open class PDFKitViewController: UIViewController, PDFViewController {
     }
     
     func gotoNextPage() {
-        if pdfView.canGoToNextPage() {
+        if pdfView.canGoToNextPage {
             UIView.animate(withDuration:CATransaction.animationDuration(), animations: { [weak self] in
                 self?.pdfView.alpha = 0.0
                 }, completion: { [weak self] (finished: Bool) in
